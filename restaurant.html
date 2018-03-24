@@ -6,6 +6,8 @@
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <!-- responsive tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Restaurant Info</title>
 </head>
 
@@ -29,16 +31,20 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <section id="map-container">
-      <div id="map"></div>
+      <div role="map" id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
-      <img id="restaurant-img">
-      <p id="restaurant-cuisine"></p>
-      <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
+      <div class="restaurant-left">
+        <h1 id="restaurant-name"></h1>
+        <img id="restaurant-img">
+        <p role="cuisine" id="restaurant-cuisine"></p>
+      </div>
+      <div class="restaurant-right">
+        <p id="restaurant-address"></p>
+        <table id="restaurant-hours"></table>
+      </div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
@@ -56,12 +62,17 @@
   <!-- End footer -->
 
   <!-- Beginning scripts -->
+  <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+  </script>  
   <!-- Database helpers -->
   <script type="text/javascript" src="js/dbhelper.js"></script>
   <!-- Main javascript file -->
   <script type="text/javascript" src="js/restaurant_info.js"></script>
   <!-- Google Maps -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCNGIvky9n1zyu6OW_vu1MpR4ru_ObnLA&libraries=places&callback=initMap"></script>
   <!-- End scripts -->
 
 </body>
