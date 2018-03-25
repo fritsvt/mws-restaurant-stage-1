@@ -1,4 +1,4 @@
-const VERSION = 'v2';
+const VERSION = 'v3';
 const RUNTIME = 'sw';
 
 const PRECACHE_URLS = [
@@ -49,7 +49,7 @@ self.addEventListener('fetch', event => {
   // Skip cors requests
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
-      caches.match(event.request).then(cachedResponse => {
+      caches.match(event.request, {ignoreSearch: true}).then(cachedResponse => {
 
         if (cachedResponse) {
           return cachedResponse;
